@@ -31,6 +31,22 @@
         font-family: "Rubik Bubbles", cursive;
       }
 
+      .audio-auto {
+        position: fixed;
+        top: 40px;
+        left: 40px;
+        color: rgb(225, 12, 168);
+        cursor: pointer;
+      }
+
+      .audio-auto:hover {
+        color: rgb(225, 12, 168, 0.5);
+      }
+
+      .audio {
+        opacity: 0;
+      }
+
       .box {
         width: 100%;
         position: absolute;
@@ -157,16 +173,22 @@
     >
       <h1 class="auto-type"></h1>
     </div>
-    <div
-      class="audio-auto"
-      style="position: fixed; left: -1000px; top: -1000px"
-    >
-      <audio controls autoplay loop>
+    <div class="audio-auto">
+      <span class="click-me">Click dô tui lên nhạcccc =)))</span>
+      <audio class="audio" autoplay loop>
         <source src="./audio/love.mp3" type="audio/mpeg" />
       </audio>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
+      const click = document.querySelector(".click-me");
+
+      click.onclick = function (e) {
+        const audio = document.querySelector(".audio");
+
+        audio.play();
+      };
+
       // Hover effect
       document.addEventListener("mousemove", function (e) {
         let body = document.querySelector("body");
